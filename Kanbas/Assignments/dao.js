@@ -9,4 +9,4 @@ export function deleteAssignment(courseId, assignmentId) {
     const {assignments} = Database;
     Database.assignments = assignments.filter((a) => !(a.course === courseId && a._id === assignmentId));
     return 200;
-}
+ }
