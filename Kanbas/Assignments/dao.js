@@ -12,14 +12,15 @@ export function deleteAssignment(courseId, assignmentId) {
 }
 
 export function createAssignment(courseId, assignment) {
-    const newAssignment = {...assignment, _id: new Date().getTime()};
+    const newAssignment = {...assignment, _id: new Date().getTime().toString()};
     Database.assignments = [...Database.assignments, newAssignment];
     return newAssignment;
 }
 
-export function updateAssignment(courseId, assignmentId, moduleUpdates) {
+export function updateAssignment(courseId, assignmentId, assignmentUpdates) {
     const {assignments} = Database;
     const assignment = assignments.find((assignment) => assignment.course === courseId && assignment._id === assignmentId);
-    Object.assign(assignment, moduleUpdates);
+    console.log(assignment);
+    Object.assign(assignment, assignmentUpdates);
     return assignment;
 }
