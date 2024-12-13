@@ -20,7 +20,6 @@ export function createAssignment(courseId, assignment) {
 export function updateAssignment(courseId, assignmentId, assignmentUpdates) {
     const {assignments} = Database;
     const assignment = assignments.find((assignment) => assignment.course === courseId && assignment._id === assignmentId);
-    console.log(assignment);
     Object.assign(assignment, assignmentUpdates);
     return assignment;
 }
